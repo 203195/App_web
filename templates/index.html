@@ -13,5 +13,19 @@
     <div>
         <p>Esta es una aplicación web creada con Flask.</p>
     </div>
+
+    <div>
+        <hi> Catálogo de productos</hi>
+        <ul>
+            {% for producto in productos %}
+                <li>
+                    {{ producto.nombre }} - ${{ producto.precio }}
+                    <a href="{{ ulr_for('agregar', id=producto.id) }}">Agregar al carrito</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('carrito') }}">Ver carrito</a>
+    </div>
 </body>
 </html>
